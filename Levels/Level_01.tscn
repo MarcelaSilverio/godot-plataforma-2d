@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=2]
+[gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Pixel Adventure 1/Free/Terrain/Seasonal Tilesets/4 - Winter World/Background parts/1 - Snowy_foreground_area.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/Pixel Adventure 1/Free/Terrain/Seasonal Tilesets/1 - Grassland/Background parts/3 - Cloud_cover_1.png" type="Texture" id=6]
 [ext_resource path="res://scripts/Fallzone.gd" type="Script" id=7]
 [ext_resource path="res://itens/pineapple.tscn" type="PackedScene" id=8]
+[ext_resource path="res://itens/kiwi.tscn" type="PackedScene" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=5]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -1332,7 +1333,7 @@ motion_scale = Vector2( 0.8, 1 )
 motion_mirroring = Vector2( 576, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/forest"]
-position = Vector2( 0, -230 )
+position = Vector2( 0, -224 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 centered = false
@@ -1348,7 +1349,39 @@ __meta__ = {
 position = Vector2( 16, 0 )
 shape = SubResource( 65 )
 
-[node name="pineapple" parent="." instance=ExtResource( 8 )]
+[node name="fruits" type="Node2D" parent="."]
+
+[node name="pineapple" parent="fruits" instance=ExtResource( 8 )]
 position = Vector2( 112, 16 )
+
+[node name="pineapple2" parent="fruits" instance=ExtResource( 8 )]
+position = Vector2( 320, 48 )
+
+[node name="pineapple5" parent="fruits" instance=ExtResource( 8 )]
+position = Vector2( 432, 112 )
+
+[node name="pineapple3" parent="fruits" instance=ExtResource( 8 )]
+position = Vector2( 224, 128 )
+
+[node name="pineapple4" parent="fruits" instance=ExtResource( 8 )]
+position = Vector2( 256, 128 )
+
+[node name="kiwi" parent="fruits" instance=ExtResource( 9 )]
+position = Vector2( 128, 96 )
+
+[node name="kiwi2" parent="fruits" instance=ExtResource( 9 )]
+position = Vector2( 560, 48 )
+
+[node name="kiwi3" parent="fruits" instance=ExtResource( 9 )]
+position = Vector2( 480, 80 )
+
+[node name="kiwi4" parent="fruits" instance=ExtResource( 9 )]
+position = Vector2( 528, 128 )
+
+[node name="pineapple6" parent="fruits" instance=ExtResource( 8 )]
+position = Vector2( 736, 16 )
+
+[node name="kiwi5" parent="fruits" instance=ExtResource( 9 )]
+position = Vector2( 640, 112 )
 
 [connection signal="body_entered" from="fallzone" to="fallzone" method="_on_fallzone_body_entered"]
