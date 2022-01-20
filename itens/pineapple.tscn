@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/Pixel Adventure 1/Free/Items/Fruits/Pineapple.png" type="Texture" id=1]
 [ext_resource path="res://assets/Pixel Adventure 1/Free/Items/Fruits/Collected.png" type="Texture" id=2]
+[ext_resource path="res://scripts/Itens.gd" type="Script" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -47,7 +48,6 @@ tracks/2/keys = {
 [sub_resource type="Animation" id=4]
 resource_name = "collected"
 length = 0.6
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("pineapple:frame")
 tracks/0/interp = 1
@@ -127,6 +127,8 @@ tracks/2/keys = {
 }
 
 [node name="pineapple" type="Area2D"]
+collision_layer = 4
+script = ExtResource( 3 )
 
 [node name="pineapple" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -137,7 +139,10 @@ visible = false
 shape = SubResource( 1 )
 
 [node name="anim" type="AnimationPlayer" parent="."]
-playback_speed = 1.5
+autoplay = "motion"
 anims/RESET = SubResource( 2 )
 anims/collected = SubResource( 4 )
 anims/motion = SubResource( 3 )
+
+[connection signal="body_entered" from="." to="." method="_on_items_body_entered"]
+[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
