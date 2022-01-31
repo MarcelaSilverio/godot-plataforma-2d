@@ -1388,4 +1388,7 @@ position = Vector2( 640, 112 )
 [node name="Mushroom" parent="." instance=ExtResource( 10 )]
 position = Vector2( 258, 146 )
 
+[node name="Mushroom2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 253, 64 )
+
 [connection signal="body_entered" from="fallzone" to="fallzone" method="_on_fallzone_body_entered"]
